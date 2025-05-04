@@ -1,0 +1,1 @@
+SELECT s.course_id, s.sec_id, COUNT(t.ID) AS num_students FROM section s LEFT JOIN takes t ON s.course_id = t.course_id AND s.sec_id = t.sec_id AND s.year = t.year And s.semester = t.semester GROUP BY s.course_id, s.sec_id;

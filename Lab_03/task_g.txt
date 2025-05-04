@@ -1,0 +1,1 @@
+πName( σ((Mark = 'A' ∨ Mark = 'B') ∧ Class = 2)( Students ⨝ Gradebook ⨝ Courses ) )

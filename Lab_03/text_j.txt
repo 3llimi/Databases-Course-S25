@@ -1,0 +1,1 @@
+πName (Students) - πName (Students ⨝ Gradebook ⨝ (πCID (σCourseName='Math' (Courses))))

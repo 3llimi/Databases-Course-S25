@@ -1,0 +1,1 @@
+πSID(σClass=1∨Class=2(Courses)⨝(Gradebook))

@@ -1,0 +1,1 @@
+πName (Students ⨝ Gradebook ⨝ (πCID (σClass=1 (Courses)) ⨝ σMark='A' ∨ Mark='B'(Gradebook))) ∩ πName (Students ⨝ Gradebook ⨝ (πCID (σClass=2 (Courses)) ⨝ σMark='A' ∨ Mark='B' (Gradebook)))

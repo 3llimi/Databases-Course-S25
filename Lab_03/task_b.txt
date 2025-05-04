@@ -1,0 +1,1 @@
+(πSID( Gradebook ⨝(Gradebook.CID = Courses.CID) σ(Class = 1)(Courses) )) ∪ (πSID( σ(Surname = 'Valdez')(Students) ))

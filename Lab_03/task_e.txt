@@ -1,0 +1,1 @@
+(πSID, CID(Gradebook)) ÷ (πCID( σ(Class = 1)(Courses) ))

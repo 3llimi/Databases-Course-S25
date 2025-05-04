@@ -1,0 +1,81 @@
+name: Autograding Tests
+on:
+- push
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: self-hosted
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test 0
+      id: test-0
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 0
+        setup-command: ''
+        command: "tests/prep.sh"
+        timeout: 2
+        max-score: 0
+    - name: Test 1
+      id: test-1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 1
+        setup-command: ''
+        command: "tests/run_query.sh 1"
+        timeout: 1
+        max-score: 2
+    - name: Test 2
+      id: test-2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 2
+        setup-command: ''
+        command: "tests/run_query.sh 2"
+        timeout: 1
+        max-score: 2
+    - name: Test 3
+      id: test-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 3
+        setup-command: ''
+        command: "tests/run_query.sh 3"
+        timeout: 1
+        max-score: 2
+    - name: Test 4
+      id: test-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 4
+        setup-command: ''
+        command: "tests/run_query.sh 4"
+        timeout: 1
+        max-score: 2
+    - name: Test 5
+      id: test-5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 5
+        setup-command: ''
+        command: "tests/run_query.sh 5"
+        timeout: 1
+        max-score: 2
+    - name: Cleanup
+      run: ./tests/cleanup.sh
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-0_RESULTS: "${{steps.test-0.outputs.result}}"
+        TEST-1_RESULTS: "${{steps.test-1.outputs.result}}"
+        TEST-2_RESULTS: "${{steps.test-2.outputs.result}}"
+        TEST-3_RESULTS: "${{steps.test-3.outputs.result}}"
+        TEST-4_RESULTS: "${{steps.test-4.outputs.result}}"
+        TEST-5_RESULTS: "${{steps.test-5.outputs.result}}"
+      with:
+        runners: test-0,test-1,test-2,test-3,test-4,test-5
